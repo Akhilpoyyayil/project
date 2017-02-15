@@ -13,14 +13,17 @@ public class RegistrationService extends CreateDbConnection {
 	public int register(RegistrationBeen reg) 
 	{
 		System.out.println("Registration service");
-		query="insert into tbl_user (vchr_user_fname,vchr_user_lname,vchr_user_email,vchr_user_password)"
-				+ " values (?,?,?,?)";
+		System.out.println(reg.getFileName());
+		query="insert into tbl_user (vchr_user_fname,vchr_user_lname,vchr_user_email,vchr_user_password,vchr_user_file)"
+				+ " values (?,?,?,?,?)";
+		System.out.println(query);
 		try {
 			ps=super.createConnection().prepareStatement(query);
 			ps.setString(1, reg.getFname());
 			ps.setString(2, reg.getLname());
 			ps.setString(3, reg.getEmail());
 			ps.setString(4, reg.getPassword());
+			ps.setString(5, reg.getFileName());
 			rt=ps.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

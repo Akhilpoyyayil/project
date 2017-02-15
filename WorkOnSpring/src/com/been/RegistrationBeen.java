@@ -5,6 +5,14 @@ public class RegistrationBeen {
 	private String lname;
 	private String email;
 	private String password;
+	private String fileName;
+
+	public String getFileName() {
+		return fileName;
+	}
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
 	public String getFname() {
 		return fname;
 	}
